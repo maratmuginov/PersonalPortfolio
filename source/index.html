@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio</title>
+    <script>
+        class Technology {
+            constructor(type, languages, proficiency) {
+                this.type = type;
+                this.languages = languages;
+                this.proficiency = proficiency;
+            }
+        }
+
+        var myTechnologies = [
+            new Technology("Front-End", ["HTML", "CSS", "JavaScript", "WASM"], 2.5),
+            new Technology("Back-End", ["C#", "VB.NET"], 4.5),
+            new Technology("Databases", ["SQL", "BSON"], 4)
+        ];
+
+        function populateTechnologies() {
+            const tableBody = document.getElementById("technologiesTableBody");
+            myTechnologies.forEach(technology => {
+                var row = document.createElement("tr");
+
+                var cell = document.createElement("td");
+                cell.innerText = technology.type;
+
+                row.appendChild(cell);
+
+                cell = document.createElement("td");
+                cell.innerText = technology.languages.join(", ");
+
+                row.appendChild(cell);
+
+                cell = document.createElement("td");
+                cell.innerText = technology.proficiency;
+
+                row.appendChild(cell);
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        function onLoad() {
+            populateTechnologies();
+        }
+
+    </script>
+    <style>
+        div.inputGroup {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body onload="onLoad();">
+    <h1>Marat Muginov</h1>
+    <img height="128" width="128" src="https://avatars.githubusercontent.com/u/71664001?v=4" alt="Profile picture">
+    <div>
+        <a href="https://github.com/maratmuginov/">
+            <img height="16" width="16" src="images/GitHub.png" alt="GitHub logo">
+            My GitHub
+        </a>
+        <a href="mailto:marat.muginov@gmail.com">
+            📧 Email Me
+        </a>
+    </div>
+
+    <div>
+        <h2>Technologies</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Languages</th>
+                    <th>Proficiency</th>
+                </tr>
+            </thead>
+            <tbody id="technologiesTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h2>Contact Me</h2>
+        <form>
+            <div>
+                <div class="inputGroup">
+                    <label for="nameInput">Name:</label>
+                    <input id="nameInput" type="text">
+                </div>
+
+                <div class="inputGroup">
+                    <label for="emailInput">Email:</label>
+                    <input id="emailInput" type="email">
+                </div>
+
+                <div class="inputGroup">
+                    <label>Message:</label>
+                    <br>
+                    <textarea placeholder="Type your message here"></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
